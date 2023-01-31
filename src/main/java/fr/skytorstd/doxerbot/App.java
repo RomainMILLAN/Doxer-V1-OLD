@@ -1,7 +1,12 @@
 package fr.skytorstd.doxerbot;
 
+import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
+import fr.skytorstd.doxerbot.manager.CommandManager;
 import fr.skytorstd.doxerbot.manager.Console;
 import fr.skytorstd.doxerbot.messages.AppMessages;
+import fr.skytorstd.doxerbot.plugins.ConsoleCommander;
+import fr.skytorstd.doxerbot.plugins.Initialisation;
+import fr.skytorstd.doxerbot.plugins.Setup;
 import fr.skytorstd.doxerbot.states.ConsoleState;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -10,10 +15,10 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 public class App {
-    final public static String urlLinkToBDD = "jdbc:sqlite:doxerBD.db";
+    final public static String urlLinkToBDD = "jdbc:sqlite:doxerDB.db";
     private static JDA jda;
     private static String TOKEN = "";
-    private static boolean debugMode = true;
+    private static boolean debugMode = false;
 
     public static void main(String[] args) throws InterruptedException {
         /*
@@ -54,6 +59,29 @@ public class App {
         jda.awaitReady();
         Console.getInstance().toConsole(AppMessages.JDA_BOT_READY.getMessage(), ConsoleState.INFO);
 
+        jda.addEventListener(new Setup());
+        jda.addEventListener(new Initialisation());
+
+        /*
+        Update Slash Commands
+         */
+        updateSlashCommands();
+
+        /*
+        Uploader
+
+        Uploader.sendMessageEmbedOnUpload(guild);*/
+
+        /*
+        ConsoleCommander
+        */
+        ConsoleCommander.ligarConsoleCommander();
+    }
+
+    public static void updateSlashCommands(){
+        for(String idGuild : ConfigurationDoxerDatabase.getAllIdGuild()){
+            jda.getGuildById(idGuild).updateCommands().addCommands(CommandManager.updateSlashCommands()).queue();
+        }
     }
 
     /**
@@ -62,5 +90,13 @@ public class App {
      */
     public static boolean isDebugMode() {
         return debugMode;
+    }
+
+    /**
+     * Retourne le JDA en cour
+     * @return
+     */
+    public static JDA getJda() {
+        return jda;
     }
 }
