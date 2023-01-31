@@ -91,6 +91,11 @@ public class CommandManager {
         OptionData grpName = new OptionData(OptionType.STRING, "name", GrouperMessages.DESCRIPTION_NAME_ARGUMENT.getMessage()).setRequired(true);
         commandData.add(Commands.slash("groupe", GrouperMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(grpName));
 
+        //PingRemover
+        OptionData prAction = new OptionData(OptionType.STRING, "action", PingRemoverMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un ping à supprimer", "add").addChoice("Supprimer un ping à supprimer", "remove").addChoice("Voir la liste des pings", "show");
+        OptionData prPing = new OptionData(OptionType.MENTIONABLE, "ping", PingRemoverMessages.DESCRIPTION_PING_ARGUMENT.getMessage()).setRequired(false);
+        OptionData prPingTxt = new OptionData(OptionType.STRING, "pingtext", PingRemoverMessages.DESCRIPTION_PING_ARGUMENT.getMessage()).setRequired(false);
+        commandData.add(Commands.slash("pingremover", PingRemoverMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(prAction).addOptions(prPing).addOptions(prPingTxt));
 
         return commandData;
     }
