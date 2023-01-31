@@ -66,6 +66,7 @@ public class App {
         jda.addEventListener(new Uploader());
         jda.addEventListener(new ConfigurationPlugins());
         jda.addEventListener(new DiscordProfiler());
+        jda.addEventListener(new MessageMover());
 
         /*
         Update Slash Commands

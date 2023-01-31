@@ -37,3 +37,8 @@
 [31/01/2023 17:05:07] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `DiscordProfiler` sur **true** (*Success*)
 [31/01/2023 17:45:05] - DISCORD SENTRY/ DiscordProfiler | :white_check_mark: Vus sur le profil de `<@260278800049373187>` (*Success*)
 [31/01/2023 17:45:08] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)
+[31/01/2023 17:50:52] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idrModerateur` -> **1060811252051497012**)
+[31/01/2023 17:51:03] - DISCORD SENTRY/ MessageMover | :x: Plugin désactivé `MessageMover` (*Failed*)
+[31/01/2023 17:51:07] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)
+[31/01/2023 17:51:14] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `MessageMover` sur **true** (*Success*)
+[31/01/2023 17:51:28] - DISCORD SENTRY/ MessageMover | :white_check_mark: Message déplacé `1060902731423948841` (*Success*)

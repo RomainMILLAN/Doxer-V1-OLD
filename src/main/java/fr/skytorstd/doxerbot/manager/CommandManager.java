@@ -3,6 +3,7 @@ package fr.skytorstd.doxerbot.manager;
 import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.messages.DiscordProfilerMessages;
+import fr.skytorstd.doxerbot.messages.MessageMoverMessages;
 import fr.skytorstd.doxerbot.messages.SetupMessages;
 import fr.skytorstd.doxerbot.plugins.ConfigurationPlugins;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -34,6 +35,11 @@ public class CommandManager {
         //DiscordProfiler
         OptionData discordProfilerUser = new OptionData(OptionType.MENTIONABLE, "utilisateur", DiscordProfilerMessages.DESCRIPTION_UTILISATEUR_ARGUMENT.getMessages()).setRequired(false);
         commandData.add(Commands.slash("profil", DiscordProfilerMessages.DESCRIPTION.getMessages()).addOptions(discordProfilerUser));
+
+        //MessageMover
+        OptionData mmIdMessage = new OptionData(OptionType.STRING, "messageid", MessageMoverMessages.DESCRIPTION_COMMAND_MESSAGE_ID.getMessage()).setRequired(true);
+        OptionData mmIdChannel = new OptionData(OptionType.STRING, "channelid", MessageMoverMessages.DESCRIPTION_COMMAND_CHANNEL_ID.getMessage()).setRequired(true);
+        commandData.add(Commands.slash("messagemove", MessageMoverMessages.DESCRIPTION.getMessage()).addOptions(mmIdMessage).addOptions(mmIdChannel));
 
 
         return commandData;
