@@ -21,6 +21,7 @@ public class Initialisation extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
         if(e.getMessage().getContentRaw().startsWith("!init")){
+            e.getMessage().delete().queue();
             String[] args = e.getMessage().getContentRaw().split(" ");
 
             if(args.length == 2){
