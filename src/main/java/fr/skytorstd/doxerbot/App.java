@@ -72,6 +72,7 @@ public class App {
         jda.addEventListener(new DiscordModerator());
         jda.addEventListener(new Helper());
         jda.addEventListener(new DiscordSecurity());
+        jda.addEventListener(new BInfoCore());
 
         /*
         Update Slash Commands

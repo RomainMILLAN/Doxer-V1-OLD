@@ -63,6 +63,19 @@ public class CommandManager {
         OptionData cRename = new OptionData(OptionType.STRING, "name", DiscordSecurityMessages.DESCRIPTION_RENAME_ARGUMENT.getMessage()).setRequired(false);
         commandData.add(Commands.slash("confirm", DiscordSecurityMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(cUser).addOptions(cRole).addOptions(cRename));
 
+        //BInfoCore
+        OptionData tDate = new OptionData(OptionType.STRING, "date",BInfoCoreMessages.DESCRIPTION_TUTORAT_DATE_ARGUMENT.getMessage()).setRequired(true);
+        OptionData tHour = new OptionData(OptionType.STRING, "heure", BInfoCoreMessages.DESCRIPTION_TUTORAT_HEURE_ARGUMENT.getMessage()).setRequired(true);
+        commandData.add(Commands.slash("tutorat", BInfoCoreMessages.DESCRIPTION_TUTORAT_COMMAND.getMessage()).addOptions(tDate).addOptions(tHour));
+
+        OptionData edtAction = new OptionData(OptionType.STRING, "action", BInfoCoreMessages.DESCRIPTION_EDT_ACTION_ARGUMENT.getMessage()).setRequired(false).addChoice("Réediter l'emploi du temp", "refresh").addChoice("Edition de l'information d'un cour", "edit-info");
+        OptionData edtGroupe = new OptionData(OptionType.STRING, "groupe", BInfoCoreMessages.DESCRIPTION_EDT_GROUPE_ARGUMENT.getMessage()).setRequired(false).addChoice("BUT INFO - A1", "infos6").addChoice("BUT INFO - Q5", "infoq5");
+        OptionData edtId = new OptionData(OptionType.STRING, "id", BInfoCoreMessages.DESCRIPTION_EDT_ID_ARGUMENT.getMessage()).setRequired(false);
+        OptionData edtDate = new OptionData(OptionType.STRING, "date", BInfoCoreMessages.DESCRIPTION_EDT_DATE_ARGUMENT.getMessage()).setRequired(false);
+        OptionData edtInfo = new OptionData(OptionType.STRING, "information", BInfoCoreMessages.DESCRIPTION_EDT_INFO_ARGUMENT.getMessage()).setRequired(false);
+        commandData.add(Commands.slash("edt", BInfoCoreMessages.DESCRIPTION_EDT_COMMAND.getMessage()).addOptions(edtInfo).addOptions(edtAction).addOptions(edtId).addOptions(edtGroupe).addOptions(edtDate));
+
+
 
         return commandData;
     }
