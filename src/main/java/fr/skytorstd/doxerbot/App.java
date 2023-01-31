@@ -71,6 +71,7 @@ public class App {
         jda.addEventListener(new PollExclamer());
         jda.addEventListener(new DiscordModerator());
         jda.addEventListener(new Helper());
+        jda.addEventListener(new DiscordSecurity());
 
         /*
         Update Slash Commands

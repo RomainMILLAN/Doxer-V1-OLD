@@ -57,6 +57,12 @@ public class CommandManager {
         commandData.add(Commands.slash("help", HelperMessages.DESCRIPTION_HELP_COMMAND.getMessage()).addOptions(hPlugin));
         commandData.add(Commands.slash("plugins", HelperMessages.DESCRIPTION_PLUGIN_COMMAND.getMessage()));
 
+        //DiscordSecurity
+        OptionData cUser = new OptionData(OptionType.MENTIONABLE, "utilisateur", DiscordSecurityMessages.DESCRIPTION_USER_ARGUMENT.getMessage()).setRequired(true);
+        OptionData cRole = new OptionData(OptionType.MENTIONABLE, "role", DiscordSecurityMessages.DESCRIPTION_ROLE_ARGUMENT.getMessage()).setRequired(false);
+        OptionData cRename = new OptionData(OptionType.STRING, "name", DiscordSecurityMessages.DESCRIPTION_RENAME_ARGUMENT.getMessage()).setRequired(false);
+        commandData.add(Commands.slash("confirm", DiscordSecurityMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(cUser).addOptions(cRole).addOptions(cRename));
+
 
         return commandData;
     }
