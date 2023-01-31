@@ -1,6 +1,7 @@
 package fr.skytorstd.doxerbot.databases;
 
 import fr.skytorstd.doxerbot.App;
+import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.object.Plugin;
 
 import java.sql.ResultSet;
@@ -59,6 +60,26 @@ public class ConfigurationPluginsDatabase {
         return pluginNameList;
     }
 
+    public static boolean pluginConfigExist(String pluginName, String idGuild){
+        String sql = "SELECT COUNT(*) as nb FROM configurationPlugins WHERE pluginName='"+pluginName+"' AND idGuild='"+idGuild+"'";
+
+        try {
+            ResultSet ResultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
+
+            while(ResultatSQL.next()){
+                if(ResultatSQL.getInt("nb") == 1){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return false;
+    }
+
     /*
     CREATE
      */
@@ -81,14 +102,18 @@ public class ConfigurationPluginsDatabase {
         if(!ConfigurationPluginsDatabase.getStatePluginWithPluginName(plugin.getName(), idGuild))
             pluginStateInt = 1;
 
-        String sql = "UPDATE configurationPlugins SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"' AND idGuild='"+idGuild+"'";
+        String sql = "";
+        if(ConfigurationPluginsDatabase.pluginConfigExist(plugin.getName(), idGuild))
+            sql = "UPDATE configurationPlugins SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"' AND idGuild='"+idGuild+"'";
+        else
+            sql = "INSERT INTO configurationPlugins('pluginName', 'pluginState', 'idGuild') VALUES('"+plugin.getName()+"','"+pluginStateInt+"','"+idGuild+"');";
+
 
         try {
-            DatabaseConnection.getInstance().getStatement().executeUpdate(sql);
+            DatabaseConnection.getInstance().getStatement().execute(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
     /*
     DELETE
