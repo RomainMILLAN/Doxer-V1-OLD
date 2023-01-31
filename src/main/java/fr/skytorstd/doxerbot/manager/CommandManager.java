@@ -75,6 +75,9 @@ public class CommandManager {
         OptionData edtInfo = new OptionData(OptionType.STRING, "information", BInfoCoreMessages.DESCRIPTION_EDT_INFO_ARGUMENT.getMessage()).setRequired(false);
         commandData.add(Commands.slash("edt", BInfoCoreMessages.DESCRIPTION_EDT_COMMAND.getMessage()).addOptions(edtInfo).addOptions(edtAction).addOptions(edtId).addOptions(edtGroupe).addOptions(edtDate));
 
+        //VoiceClick
+        OptionData vcAction = new OptionData(OptionType.STRING, "action", VoiceClickMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un channel VoiceClick", "add").addChoice("Supprimer un channel VoiceClick", "remove").addChoice("Voir la liste des channels VoiceClick", "show");
+        commandData.add(Commands.slash("voiceclick", VoiceClickMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(vcAction));
 
 
         return commandData;

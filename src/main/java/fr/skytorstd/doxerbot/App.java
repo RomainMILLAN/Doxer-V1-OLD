@@ -5,6 +5,7 @@ import fr.skytorstd.doxerbot.manager.CommandManager;
 import fr.skytorstd.doxerbot.manager.Console;
 import fr.skytorstd.doxerbot.messages.AppMessages;
 import fr.skytorstd.doxerbot.object.Plugin;
+import fr.skytorstd.doxerbot.object.VoiceClickChannel;
 import fr.skytorstd.doxerbot.plugins.*;
 import fr.skytorstd.doxerbot.states.ConsoleState;
 import net.dv8tion.jda.api.JDA;
@@ -73,6 +74,7 @@ public class App {
         jda.addEventListener(new Helper());
         jda.addEventListener(new DiscordSecurity());
         jda.addEventListener(new BInfoCore());
+        jda.addEventListener(new VoiceClick());
 
         /*
         Update Slash Commands
