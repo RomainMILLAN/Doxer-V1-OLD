@@ -135,8 +135,27 @@ public class ConfigurationDoxerDatabase {
         }
     }
 
+    /**
+     * Initialise un tuple contenant l'id d'une guild
+     * @param idGuild
+     * @param idrSudo
+     */
     public static void initBot(String idGuild, String idrSudo){
         String sql = "INSERT INTO configuration('idGuild', 'idrSudo') VALUES('"+idGuild+"','"+idrSudo+"')";
+
+        try {
+            DatabaseConnection.getInstance().getStatement().execute(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Supprime le tuple d'une guild
+     * @param idGuild
+     */
+    public static void destroyGuildBot(String idGuild){
+        String sql = "DELETE FROM configuration WHERE idGuild='"+idGuild+"'";
 
         try {
             DatabaseConnection.getInstance().getStatement().execute(sql);

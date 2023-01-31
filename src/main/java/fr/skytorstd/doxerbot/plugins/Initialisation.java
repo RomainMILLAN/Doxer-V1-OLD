@@ -33,7 +33,7 @@ public class Initialisation extends ListenerAdapter {
                     e.getMessage().getChannel().sendMessageEmbeds(EmbedCrafter.embedCraftWithDescriptionOnly(":white_check_mark: " + SetupMessages.INIT_OK.getMessages())).queue((m) -> m.delete().queueAfter(QueueAfterTimes.SUCCESS_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                     Logger.getInstance().toLogOnConsoleAndFileOnly(PluginName.SETUP.getMessage(), SetupMessages.INIT_OK.getMessages(), e.getGuild(), e.getMember());
                 }else {
-                    e.getMessage().getChannel().sendMessageEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(":x: " + SetupMessages.BOT_ALREADY_INIT)).queue((m) -> m.delete().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
+                    e.getMessage().getChannel().sendMessageEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(":x: " + SetupMessages.BOT_ALREADY_INIT.getMessages())).queue((m) -> m.delete().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                     Logger.getInstance().toLogOnConsoleAndFileOnly(PluginName.SETUP.getMessage(), SetupMessages.BOT_ALREADY_INIT.getMessages(), e.getGuild(), e.getMember());
                 }
             }else {

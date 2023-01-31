@@ -5,3 +5,12 @@
 [31/01/2023 15:45:06] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
 [31/01/2023 15:51:55] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcLog` -> **1060811570558541864**)
 [31/01/2023 15:52:06] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcDSentry` -> **1062366666429837382**)
+[31/01/2023 16:04:40] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:04:45] - DISCORD SENTRY/ Setup | Permission manquante
+[31/01/2023 16:05:00] - DISCORD SENTRY/ Setup | Le bot à déja était intialisée
+[31/01/2023 16:05:35] - DISCORD SENTRY/ Setup | Le bot à déja était intialisée
+[31/01/2023 16:05:52] - DISCORD SENTRY/ Setup | Le bot à déja était intialisée
+[31/01/2023 16:06:00] - DISCORD SENTRY/ Setup | Permission manquante
+[31/01/2023 16:06:33] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:06:43] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
+[31/01/2023 16:06:52] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
