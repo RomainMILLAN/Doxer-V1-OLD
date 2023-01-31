@@ -15,7 +15,7 @@ public class CommandManager {
     public static List<CommandData> updateSlashCommands(){
         List<CommandData> commandData = new ArrayList<>();
 
-        OptionData setup_select = new OptionData(OptionType.STRING, "selection", SetupMessages.DESCRIPTION_SELECT_ARGUMENT.getMessages()).setRequired(true).addChoice("idcLog", "ID Channel Logs").addChoice("idcDSentry", "ID Channel DiscordSentry").addChoice("idcUploader", "ID Channel Uploader").addChoice("idcJoinQuit", "ID Channel JoinQuit").addChoice("idcSecurity", "ID Channel Security").addChoice("idcatGrouper", "ID Catégorie Grouper").addChoice("idrSudo", "ID Role Sudo").addChoice("idrAdmin", "ID Role Administrateur").addChoice("idrModerateur", "ID Role Moderateur").addChoice("idrUser", "ID Role Utilisateur");
+        OptionData setup_select = new OptionData(OptionType.STRING, "selection", SetupMessages.DESCRIPTION_SELECT_ARGUMENT.getMessages()).setRequired(true).addChoice("ID Channel Logs", "idcLog").addChoice("ID Channel DiscordSentry", "idcDSentry").addChoice("ID Channel Uploader", "idcUploader").addChoice("ID Channel JoinQuit", "idcJoinQuit").addChoice("ID Channel Security", "idcSecurity").addChoice("ID Catégorie Grouper", "idcatGrouper").addChoice("ID Role Sudo", "idrSudo").addChoice("ID Role Administrateur", "idrAdmin").addChoice("ID Role Moderateur", "idrModerateur").addChoice("ID Role Utilisateur", "idrUser");
         OptionData setup_value = new OptionData(OptionType.STRING, "value", SetupMessages.DESCRIPTION_VALUE_ARGUMENT.getMessages()).setRequired(true);
         commandData.add(Commands.slash("setup", SetupMessages.DESCRIPTION_COMMAND.getMessages()).addOptions(setup_select).addOptions(setup_value));
 

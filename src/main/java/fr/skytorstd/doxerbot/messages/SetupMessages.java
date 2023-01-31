@@ -7,7 +7,8 @@ public enum SetupMessages {
     DESCRIPTION_VALUE_ARGUMENT("Permet de définir la valeur"),
     ID_SUDO_NOT_EXIST("L\'identifiant renseigner n'existe pas"),
     INIT_OK("L\'initialisation du bot à été effectué"),
-    BOT_ALREADY_INIT("Le bot à déja était intialisée");
+    BOT_ALREADY_INIT("Le bot à déja était intialisée"),
+    CONF_EDIT("La configuration à était modifié");
 
     private String messages;
 

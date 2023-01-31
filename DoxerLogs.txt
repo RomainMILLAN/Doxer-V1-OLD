@@ -3,3 +3,5 @@
 [31/01/2023 15:40:33] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
 [31/01/2023 15:42:12] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
 [31/01/2023 15:45:06] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 15:51:55] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcLog` -> **1060811570558541864**)
+[31/01/2023 15:52:06] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcDSentry` -> **1062366666429837382**)

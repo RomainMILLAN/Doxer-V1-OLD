@@ -5,6 +5,7 @@ import fr.skytorstd.doxerbot.embedCrafter.ErrorCrafter;
 import fr.skytorstd.doxerbot.embedCrafter.SetupCrafter;
 import fr.skytorstd.doxerbot.manager.Logger;
 import fr.skytorstd.doxerbot.messages.LoggerMessages;
+import fr.skytorstd.doxerbot.messages.SetupMessages;
 import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.states.PluginName;
 import fr.skytorstd.doxerbot.states.QueueAfterTimes;
@@ -28,10 +29,10 @@ public class Setup extends ListenerAdapter {
 
                 ConfigurationDoxerDatabase.setupBySelectionAndValue(e.getGuild().getId(), selection, value);
                 e.replyEmbeds(SetupCrafter.setupSelectionByValue(selection, value)).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.SUCCESS_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
-                Logger.getInstance().toLog(PluginName.SETUP.getMessage(), "La configuration(`"+selection+"`) à était modifié sur **"+value+"** par `"+e.getMember().getAsMention()+"`", e.getGuild(), e.getMember(), true);
+                Logger.getInstance().toLogOnConsoleAndFileOnly(PluginName.SETUP.getMessage(), SetupMessages.CONF_EDIT.getMessages() + " (`"+selection+"` -> **"+value+"**)", e.getGuild(), e.getMember());
             }else{
                 e.replyEmbeds(ErrorCrafter.errorNotPermissionToCommand(e.getMember())).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
-                Logger.getInstance().toLog(PluginName.SETUP.getMessage(), LoggerMessages.USER_NO_PERMISSION.getMessage(), e.getGuild(), e.getMember(), false);
+                Logger.getInstance().toLogOnConsoleAndFileOnly(PluginName.SETUP.getMessage(), LoggerMessages.USER_NO_PERMISSION.getMessage(), e.getGuild(), e.getMember());
             }
         }
     }
