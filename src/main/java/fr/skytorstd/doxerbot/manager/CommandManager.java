@@ -87,6 +87,10 @@ public class CommandManager {
         OptionData diUserTag = new OptionData(OptionType.STRING, "usertag", DiscordInviterMessages.DESCRIPTION_USERTAG_ARGUMENT.getMessage()).setRequired(true);
         commandData.add(Commands.slash("inviter", DiscordInviterMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(diUserTag));
 
+        //Grouper
+        OptionData grpName = new OptionData(OptionType.STRING, "name", GrouperMessages.DESCRIPTION_NAME_ARGUMENT.getMessage()).setRequired(true);
+        commandData.add(Commands.slash("groupe", GrouperMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(grpName));
+
 
         return commandData;
     }
