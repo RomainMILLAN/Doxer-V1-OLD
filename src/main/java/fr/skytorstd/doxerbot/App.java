@@ -76,6 +76,7 @@ public class App {
         jda.addEventListener(new BInfoCore());
         jda.addEventListener(new VoiceClick());
         jda.addEventListener(new RoleSubscriber());
+        jda.addEventListener(new DiscordSentry());
 
         /*
         Update Slash Commands
