@@ -42,3 +42,8 @@
 [31/01/2023 17:51:07] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)
 [31/01/2023 17:51:14] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `MessageMover` sur **true** (*Success*)
 [31/01/2023 17:51:28] - DISCORD SENTRY/ MessageMover | :white_check_mark: Message déplacé `1060902731423948841` (*Success*)
+[31/01/2023 17:54:56] - DISCORD SENTRY/ Weather | :x: Plugin désactivé (*Failed*)
+[31/01/2023 17:55:02] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `Weather` sur **true** (*Success*)
+[31/01/2023 17:58:59] - DISCORD SENTRY/ PollExclamer | :x: Plugin désactivé (*Failed*)
+[31/01/2023 17:59:10] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `PollExclamer` sur **true** (*Success*)
+[31/01/2023 17:59:16] - DISCORD SENTRY/ PollExclamer | :white_check_mark: Sondage crée `test` (*Success*)

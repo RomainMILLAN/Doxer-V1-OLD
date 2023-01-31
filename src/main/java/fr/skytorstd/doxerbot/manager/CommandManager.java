@@ -42,6 +42,11 @@ public class CommandManager {
         OptionData wVille = new OptionData(OptionType.STRING, "ville", WeatherMessages.DESCRIPTION_VILLE_ARGUMENT.getMessage()).setRequired(false);
         commandData.add(Commands.slash("weather", WeatherMessages.DESCRIPTION.getMessage()).addOptions(wVille));
 
+        //PollExclamer
+        OptionData peName = new OptionData(OptionType.STRING, "name", PollExclamerMessages.DESCRIPTION_NAME_ARGUMENT.getMessages()).setRequired(true);
+        OptionData peRes = new OptionData(OptionType.STRING, "resultat", PollExclamerMessages.DESCRIPTION_RES_ARGUMENT.getMessages()).setRequired(true);
+        commandData.add(Commands.slash("poll", PollExclamerMessages.DESCRIPTION.getMessages()).addOptions(peName).addOptions(peRes));
+
 
         return commandData;
     }
