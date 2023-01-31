@@ -47,6 +47,11 @@ public class CommandManager {
         OptionData peRes = new OptionData(OptionType.STRING, "resultat", PollExclamerMessages.DESCRIPTION_RES_ARGUMENT.getMessages()).setRequired(true);
         commandData.add(Commands.slash("poll", PollExclamerMessages.DESCRIPTION.getMessages()).addOptions(peName).addOptions(peRes));
 
+        //DiscordModerator
+        OptionData wUser = new OptionData(OptionType.MENTIONABLE, "utilisateur", DiscordModeratorMessages.DESCRIPTION_USER_ARGUMENT.getMessage()).setRequired(true);
+        OptionData wAction = new OptionData(OptionType.STRING, "action", DiscordModeratorMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un warn", "add").addChoice("Supprimer un warn", "remove").addChoice("Voir la liste des warns", "show");
+        commandData.add(Commands.slash("warn", DiscordModeratorMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(wUser).addOptions(wAction));
+
 
         return commandData;
     }

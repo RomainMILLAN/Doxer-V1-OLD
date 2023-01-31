@@ -69,6 +69,7 @@ public class App {
         jda.addEventListener(new MessageMover());
         jda.addEventListener(new Weather());
         jda.addEventListener(new PollExclamer());
+        jda.addEventListener(new DiscordModerator());
 
         /*
         Update Slash Commands
