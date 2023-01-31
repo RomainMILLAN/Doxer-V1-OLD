@@ -83,6 +83,10 @@ public class CommandManager {
         OptionData rsAction = new OptionData(OptionType.STRING, "action", RoleSubscriberMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un rôle", "add").addChoice("Supprimer un rôle", "remove").addChoice("Voir la liste des rôles", "show").addChoice("Afficher le message", "see");
         commandData.add(Commands.slash("rolesubscriber", RoleSubscriberMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(rsAction));
 
+        //DiscordInviter
+        OptionData diUserTag = new OptionData(OptionType.STRING, "usertag", DiscordInviterMessages.DESCRIPTION_USERTAG_ARGUMENT.getMessage()).setRequired(true);
+        commandData.add(Commands.slash("inviter", DiscordInviterMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(diUserTag));
+
 
         return commandData;
     }
