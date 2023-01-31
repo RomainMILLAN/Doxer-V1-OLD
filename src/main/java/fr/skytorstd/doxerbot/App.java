@@ -12,10 +12,25 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 public class App {
     final public static String urlLinkToBDD = "jdbc:sqlite:doxerBD.db";
     private static JDA jda;
-    private static String TOKEN = "MTA2OTkzNTQ4MTQxODE2NjM0NA.GUG_A3.Jv6070v_HDoYfBFi385erWSQ3TfeUYGqmlKDeE";
+    private static String TOKEN = "";
     private static boolean debugMode = true;
 
     public static void main(String[] args) throws InterruptedException {
+        /*
+        Get TOKEN bot
+         */
+        //java -jar ligar.java TOKEN --debug
+        //java -jar ligar.java TOKEN
+        StringBuilder TOKEN = new StringBuilder();
+        for(String argument : args){
+            if(argument.equalsIgnoreCase("--debug")){
+                debugMode = true;
+            }else {
+                TOKEN.append(argument);
+            }
+        }
+        App.TOKEN = TOKEN.toString();
+
         run();
     }
 
