@@ -82,3 +82,14 @@
 [31/01/2023 19:35:51] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: Liste des channels ChannelSubscriber (*Success*)
 [31/01/2023 19:35:55] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: Liste des channels ChannelSubscriber (*Success*)
 [31/01/2023 19:36:09] - DISCORD SENTRY/ DiscordProfiler | :white_check_mark: Vus sur le profil de `<@260278800049373187>` (*Success*)
+[31/01/2023 19:43:25] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `DiscordSentry` sur **true** (*Success*)
+[31/01/2023 19:43:27] - DISCORD SENTRY/ Message | <#1058032163234271263>
+ > ttrest
+[31/01/2023 19:44:47] - DISCORD SENTRY/ Message | <#1058032163234271263>
+ > etest
+[31/01/2023 19:45:16] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `DiscordSentry` sur **true** (*Success*)
+[31/01/2023 19:45:18] - DISCORD SENTRY/ Message | <#1060656788636192771>
+ > test
+[31/01/2023 19:49:49] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 19:50:05] - DISCORD SENTRY/ Setup | Permission manquante
+[31/01/2023 19:50:36] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idrUser` -> **1048287758155788331**)

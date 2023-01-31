@@ -31,7 +31,7 @@ public class RoleSubscriber extends ListenerAdapter {
 
     public RoleSubscriber() {
         ArrayList<String> commands = new ArrayList<>();
-        commands.add("/ROLESUBSCRIBER [action]*");
+        commands.add("/rolesubscriber [action]*");
         Plugin plugin = new Plugin(PluginName.ROLESUBSCRIBER.getMessage(), RoleSubscriberMessages.DESCRIPTION.getMessage(), commands);
 
         App.addPlugin(plugin);

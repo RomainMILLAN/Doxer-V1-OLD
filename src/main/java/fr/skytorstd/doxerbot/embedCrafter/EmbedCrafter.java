@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 import java.awt.*;
 
 public class EmbedCrafter {
-    protected static String thumbnailURL = "https://cdn.discordapp.com/avatars/1030431310499553400/faded94d8efd123df08a0ae35ce495f6.webp?size=128";
+    protected static String thumbnailURL = "https://cdn.discordapp.com/avatars/1069935481418166344/793209a16162577dff8b608dc02cfa9b.webp?size=128";
 
     /**
      * Return embed footer
