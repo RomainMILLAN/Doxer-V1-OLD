@@ -2,6 +2,7 @@ package fr.skytorstd.doxerbot.plugins;
 
 import fr.skytorstd.doxerbot.App;
 import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
+import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.embedCrafter.EmbedCrafter;
 import fr.skytorstd.doxerbot.embedCrafter.ErrorCrafter;
 import fr.skytorstd.doxerbot.embedCrafter.SetupCrafter;
@@ -28,6 +29,7 @@ public class Initialisation extends ListenerAdapter {
 
                 if(!ConfigurationDoxerDatabase.idGuildIsInConfiguration(e.getGuild().getId())){
                     ConfigurationDoxerDatabase.initBot(e.getGuild().getId(), idSudo);
+                    ConfigurationPluginsDatabase.initPluginConfig(e.getGuild().getId());
                     App.updateSlashCommands();
 
                     e.getMessage().getChannel().sendMessageEmbeds(EmbedCrafter.embedCraftWithDescriptionOnly(":white_check_mark: " + SetupMessages.INIT_OK.getMessages())).queue((m) -> m.delete().queueAfter(QueueAfterTimes.SUCCESS_TIME.getQueueAfterTime(), TimeUnit.SECONDS));

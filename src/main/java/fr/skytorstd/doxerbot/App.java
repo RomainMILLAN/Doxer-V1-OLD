@@ -4,9 +4,11 @@ import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
 import fr.skytorstd.doxerbot.manager.CommandManager;
 import fr.skytorstd.doxerbot.manager.Console;
 import fr.skytorstd.doxerbot.messages.AppMessages;
+import fr.skytorstd.doxerbot.object.Plugin;
 import fr.skytorstd.doxerbot.plugins.ConsoleCommander;
 import fr.skytorstd.doxerbot.plugins.Initialisation;
 import fr.skytorstd.doxerbot.plugins.Setup;
+import fr.skytorstd.doxerbot.plugins.Uploader;
 import fr.skytorstd.doxerbot.states.ConsoleState;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -14,11 +16,14 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
+import java.util.ArrayList;
+
 public class App {
     final public static String urlLinkToBDD = "jdbc:sqlite:doxerDB.db";
     private static JDA jda;
     private static String TOKEN = "";
     private static boolean debugMode = false;
+    private static ArrayList<Plugin> plugins = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
         /*
@@ -61,6 +66,7 @@ public class App {
 
         jda.addEventListener(new Setup());
         jda.addEventListener(new Initialisation());
+        jda.addEventListener(new Uploader());
 
         /*
         Update Slash Commands
@@ -69,8 +75,10 @@ public class App {
 
         /*
         Uploader
-
-        Uploader.sendMessageEmbedOnUpload(guild);*/
+        */
+        for(String idGuild : ConfigurationDoxerDatabase.getAllIdGuild()){
+            Uploader.sendMessageEmbedOnUpload(jda.getGuildById(idGuild));
+        }
 
         /*
         ConsoleCommander
@@ -98,5 +106,43 @@ public class App {
      */
     public static JDA getJda() {
         return jda;
+    }
+
+    /**
+     * Return list plugin
+     * @return
+     */
+    public static ArrayList<Plugin> getPlugins() {
+        return plugins;
+    }
+
+    /**
+     * Return plugin
+     * @param pluginName
+     * @return
+     */
+    public static Plugin getPlugin(String pluginName){
+        for(Plugin pl : plugins){
+            if(pl.getName().equalsIgnoreCase(pluginName)){
+                return pl;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Add plugin at the list of plugin
+     * @param plugin
+     */
+    public static void addPlugin(Plugin plugin){
+        for(Plugin pl : plugins){
+            if(pl.getName().equalsIgnoreCase(plugin.getName())){
+                plugins.remove(pl);
+                break;
+            }
+        }
+
+        App.plugins.add(plugin);
     }
 }

@@ -1,10 +1,13 @@
 package fr.skytorstd.doxerbot.databases;
 
+import fr.skytorstd.doxerbot.App;
+import fr.skytorstd.doxerbot.object.Plugin;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ConfigDoxerDatabase {
+public class ConfigurationPluginsDatabase {
     /*
     GETTER
      */
@@ -14,13 +17,12 @@ public class ConfigDoxerDatabase {
      * @param pluginName
      * @return
      */
-    public static boolean getStatePluginWithPluginName(String pluginName) {
-        String sql = "SELECT * FROM configurationLigar WHERE pluginName='" + pluginName + "'";
+    public static boolean getStatePluginWithPluginName(String pluginName, String idGuild) {
+        String sql = "SELECT * FROM configurationPlugins WHERE pluginName='" + pluginName + "' AND idGuild='"+idGuild+"'";
         int intBoolean = 0;
 
-        ResultSet resultatSQL = null;
         try {
-            resultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
+            ResultSet resultatSQL = resultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
 
             intBoolean = resultatSQL.getInt("pluginState");
 
@@ -42,7 +44,7 @@ public class ConfigDoxerDatabase {
      */
     public static ArrayList<String> getAllPluginNameInDB(){
         ArrayList<String> pluginNameList = new ArrayList<>();
-        String sql = "SELECT pluginName FROM configurationLigar";
+        String sql = "SELECT pluginName FROM configurationPlugins";
 
         try {
             ResultSet resultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
@@ -60,6 +62,17 @@ public class ConfigDoxerDatabase {
     /*
     CREATE
      */
+    public static void initPluginConfig(String idGuild){
+        for(Plugin pl : App.getPlugins()){
+            String sql = "INSERT INTO configurationPlugins('idGuild', 'pluginName', 'pluginState') VALUES('"+idGuild+"', '"+pl.getName()+"', 'false');";
+
+            try {
+                DatabaseConnection.getInstance().getStatement().execute(sql);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
     /*
     UPDATE
 
@@ -68,7 +81,7 @@ public class ConfigDoxerDatabase {
         if(plugin.isConfigState())
             pluginStateInt = 1;
 
-        String sql = "UPDATE configurationLigar SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"'";
+        String sql = "UPDATE configurationPlugins SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"'";
 
         try {
             DatabaseConnection.getInstance().getStatement().executeUpdate(sql);

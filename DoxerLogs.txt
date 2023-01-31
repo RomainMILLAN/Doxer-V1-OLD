@@ -14,3 +14,12 @@
 [31/01/2023 16:06:33] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
 [31/01/2023 16:06:43] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
 [31/01/2023 16:06:52] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:26:33] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
+[31/01/2023 16:26:39] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:28:42] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
+[31/01/2023 16:28:50] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:34:38] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
+[31/01/2023 16:34:42] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:36:42] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
+[31/01/2023 16:36:48] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
+[31/01/2023 16:42:44] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcUploader` -> **1060822734269075509**)
