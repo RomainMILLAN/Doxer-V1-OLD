@@ -75,13 +75,13 @@ public class ConfigurationPluginsDatabase {
     }
     /*
     UPDATE
-
-    public static void updatePluginStateWithPlguinName(Plugin plugin){
+       */
+    public static void updatePluginStateWithPluginAndIdGuild(Plugin plugin, String idGuild){
         int pluginStateInt = 0;
-        if(plugin.isConfigState())
+        if(!ConfigurationPluginsDatabase.getStatePluginWithPluginName(plugin.getName(), idGuild))
             pluginStateInt = 1;
 
-        String sql = "UPDATE configurationPlugins SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"'";
+        String sql = "UPDATE configurationPlugins SET pluginState='"+pluginStateInt+"' WHERE pluginName='"+plugin.getName()+"' AND idGuild='"+idGuild+"'";
 
         try {
             DatabaseConnection.getInstance().getStatement().executeUpdate(sql);
@@ -89,7 +89,7 @@ public class ConfigurationPluginsDatabase {
             throw new RuntimeException(e);
         }
 
-    }*/
+    }
     /*
     DELETE
      */

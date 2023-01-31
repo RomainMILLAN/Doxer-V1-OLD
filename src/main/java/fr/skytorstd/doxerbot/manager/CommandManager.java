@@ -1,6 +1,9 @@
 package fr.skytorstd.doxerbot.manager;
 
+import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
+import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.messages.SetupMessages;
+import fr.skytorstd.doxerbot.plugins.ConfigurationPlugins;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -21,6 +24,11 @@ public class CommandManager {
         commandData.add(Commands.slash("setup", SetupMessages.DESCRIPTION_COMMAND.getMessages()).addOptions(setup_select).addOptions(setup_value));
 
         commandData.add(Commands.slash("supprimer", SetupMessages.DESTROY_DESCRIPTION.getMessages()));
+
+        //ConfigurationLigar
+        OptionData configurationLigarConfig = new OptionData(OptionType.STRING, "selection", ConfigurationPluginsMessages.DESCRIPTION_COMMAND.getMessage()).setRequired(false).addChoices(ConfigurationPlugins.allPluginInListByChoice());
+        OptionData configurationLigarAction = new OptionData(OptionType.STRING, "action", ConfigurationPluginsMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(false).addChoice(ConfigurationPluginsMessages.OPTION_TRUE.getMessage(), "true").addChoice(ConfigurationPluginsMessages.OPTION_FALSE.getMessage(), "false").addChoice(ConfigurationPluginsMessages.OPTION_SHOW.getMessage(), "show");
+        commandData.add(Commands.slash("configuration", ConfigurationPluginsMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(configurationLigarConfig).addOptions(configurationLigarAction));
 
         return commandData;
     }

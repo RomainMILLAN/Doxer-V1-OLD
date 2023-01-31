@@ -23,3 +23,12 @@
 [31/01/2023 16:36:42] - DISCORD SENTRY/ Setup | Le bot à été supprimé de votre serveur
 [31/01/2023 16:36:48] - DISCORD SENTRY/ Setup | L'initialisation du bot à été effectué
 [31/01/2023 16:42:44] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcUploader` -> **1060822734269075509**)
+[31/01/2023 16:53:22] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idrAdmin` -> **1060811231860113408**)
+[31/01/2023 16:54:06] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcLog` -> **1060811570558541864**)
+[31/01/2023 16:54:13] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcDSentry` -> **1062366666429837382**)
+[31/01/2023 16:54:22] - DISCORD SENTRY/ Setup | La configuration à était modifié (`idcJoinQuit` -> **1061912511282155520**)
+[31/01/2023 16:54:35] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)
+[31/01/2023 16:54:42] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `Uploader` sur **false** (*Success*)
+[31/01/2023 16:54:45] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)
+[31/01/2023 16:56:08] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `Uploader` sur **false** (*Success*)
+[31/01/2023 16:56:10] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Visualisation de toutes les configurations (*Success*)

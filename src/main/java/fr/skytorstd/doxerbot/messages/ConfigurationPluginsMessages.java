@@ -1,6 +1,6 @@
 package fr.skytorstd.doxerbot.messages;
 
-public enum ConfigurationLigarMessages {
+public enum ConfigurationPluginsMessages {
     DESCRIPTION_COMMAND("Permet de gérer la configuration du bot"),
     DESCRIPTION_SELECTION_ARGUMENT("Sélectionner le plugin"),
     DESCRIPTION_ACTION_ARGUMENT("Action à effectuer"),
@@ -11,7 +11,7 @@ public enum ConfigurationLigarMessages {
 
     private String message;
 
-    ConfigurationLigarMessages(String message) {
+    ConfigurationPluginsMessages(String message) {
         this.message = message;
     }
 

@@ -5,10 +5,7 @@ import fr.skytorstd.doxerbot.manager.CommandManager;
 import fr.skytorstd.doxerbot.manager.Console;
 import fr.skytorstd.doxerbot.messages.AppMessages;
 import fr.skytorstd.doxerbot.object.Plugin;
-import fr.skytorstd.doxerbot.plugins.ConsoleCommander;
-import fr.skytorstd.doxerbot.plugins.Initialisation;
-import fr.skytorstd.doxerbot.plugins.Setup;
-import fr.skytorstd.doxerbot.plugins.Uploader;
+import fr.skytorstd.doxerbot.plugins.*;
 import fr.skytorstd.doxerbot.states.ConsoleState;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -67,6 +64,7 @@ public class App {
         jda.addEventListener(new Setup());
         jda.addEventListener(new Initialisation());
         jda.addEventListener(new Uploader());
+        jda.addEventListener(new ConfigurationPlugins());
 
         /*
         Update Slash Commands
