@@ -70,6 +70,7 @@ public class App {
         jda.addEventListener(new Weather());
         jda.addEventListener(new PollExclamer());
         jda.addEventListener(new DiscordModerator());
+        jda.addEventListener(new Helper());
 
         /*
         Update Slash Commands

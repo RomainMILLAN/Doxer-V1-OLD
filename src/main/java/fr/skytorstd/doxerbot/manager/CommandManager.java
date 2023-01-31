@@ -52,6 +52,11 @@ public class CommandManager {
         OptionData wAction = new OptionData(OptionType.STRING, "action", DiscordModeratorMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un warn", "add").addChoice("Supprimer un warn", "remove").addChoice("Voir la liste des warns", "show");
         commandData.add(Commands.slash("warn", DiscordModeratorMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(wUser).addOptions(wAction));
 
+        //Helper
+        OptionData hPlugin = new OptionData(OptionType.STRING, "plugin", HelperMessages.DESCRIPTION_HELP_ARGUMENT.getMessage()).setRequired(true).addChoices(ConfigurationPlugins.allPluginInListByChoice());
+        commandData.add(Commands.slash("help", HelperMessages.DESCRIPTION_HELP_COMMAND.getMessage()).addOptions(hPlugin));
+        commandData.add(Commands.slash("plugins", HelperMessages.DESCRIPTION_PLUGIN_COMMAND.getMessage()));
+
 
         return commandData;
     }

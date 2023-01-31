@@ -50,3 +50,7 @@
 [31/01/2023 18:07:31] - DISCORD SENTRY/ DiscordModerator | :x: Plugin désactivé (*Failed*)
 [31/01/2023 18:07:39] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `DiscordModerator` sur **true** (*Success*)
 [31/01/2023 18:07:43] - DISCORD SENTRY/ DiscordModerator | :white_check_mark: Liste des warns (*Success*)
+[31/01/2023 18:15:13] - DISCORD SENTRY/ Helper | :x: PLUGIN_CONFIGURATION_DESACTIVE (`Helper`) (*Failed*)
+[31/01/2023 18:15:25] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `Helper` sur **true** (*Success*)
+[31/01/2023 18:15:27] - DISCORD SENTRY/ Helper | :white_check_mark: Visualisation des plugins (*Success*)
+[31/01/2023 18:15:32] - DISCORD SENTRY/ Helper | :white_check_mark: Visualisation des commandes de (`DiscordProfiler`) (*Success*)
