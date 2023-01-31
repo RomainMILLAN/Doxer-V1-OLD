@@ -57,3 +57,8 @@
 [31/01/2023 18:41:41] - DISCORD SENTRY/ VoiceClick | :x: Plugin désactivé (*Failed*)
 [31/01/2023 18:54:21] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `VoiceClick` sur **true** (*Success*)
 [31/01/2023 18:54:31] - DISCORD SENTRY/ VoiceClick | :white_check_mark: Liste des channels VoiceClick (*Success*)
+[31/01/2023 19:03:30] - DISCORD SENTRY/ ConfigurationLigar | :white_check_mark: Changement de status de `RoleSubscriber` sur **true** (*Success*)
+[31/01/2023 19:03:33] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: Liste des channels ChannelSubscriber (*Success*)
+[31/01/2023 19:03:48] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: ChannelSubscriber ajouté (`1060811231860113408`) (*Success*)
+[31/01/2023 19:03:51] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: Liste des channels ChannelSubscriber (*Success*)
+[31/01/2023 19:03:54] - DISCORD SENTRY/ RoleSubscriber | :white_check_mark: Message ChannelSubscriber envoyé (*Success*)

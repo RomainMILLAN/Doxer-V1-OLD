@@ -79,6 +79,10 @@ public class CommandManager {
         OptionData vcAction = new OptionData(OptionType.STRING, "action", VoiceClickMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un channel VoiceClick", "add").addChoice("Supprimer un channel VoiceClick", "remove").addChoice("Voir la liste des channels VoiceClick", "show");
         commandData.add(Commands.slash("voiceclick", VoiceClickMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(vcAction));
 
+        //RoleSubscriber
+        OptionData rsAction = new OptionData(OptionType.STRING, "action", RoleSubscriberMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Ajouter un rôle", "add").addChoice("Supprimer un rôle", "remove").addChoice("Voir la liste des rôles", "show").addChoice("Afficher le message", "see");
+        commandData.add(Commands.slash("rolesubscriber", RoleSubscriberMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(rsAction));
+
 
         return commandData;
     }

@@ -11,8 +11,8 @@ public class RoleSubscriberDatabase {
     /*
     GETTER
      */
-    public static ArrayList<RoleSubscriber> getListRoleSubscriber(){
-        final String sql = "SELECT * FROM rolesubscriber";
+    public static ArrayList<RoleSubscriber> getListRoleSubscriber(String idGuild){
+        final String sql = "SELECT * FROM rolesubscriber WHERE idGuild='"+idGuild+"'";
         ArrayList<RoleSubscriber> resultat = new ArrayList<>();
 
         try {
@@ -27,8 +27,8 @@ public class RoleSubscriberDatabase {
 
         return resultat;
     }
-    public static RoleSubscriber getRoleSubscriber(String idRole){
-        final String sql = "SELECT * FROM rolesubscriber WHERE id_role='"+idRole+"'";
+    public static RoleSubscriber getRoleSubscriber(String idRole, String idGuild){
+        final String sql = "SELECT * FROM rolesubscriber WHERE id_role='"+idRole+"' AND idGuild='"+idGuild+"'";
 
         try {
             ResultSet ResultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
@@ -45,8 +45,8 @@ public class RoleSubscriberDatabase {
     /*
     AJOUT
      */
-    public static void addRoleSubscriber(RoleSubscriber cs){
-        final String sql = "INSERT INTO rolesubscriber('id_role') VALUES('"+cs.getId_role()+"');";
+    public static void addRoleSubscriber(RoleSubscriber cs, String idGuild){
+        final String sql = "INSERT INTO rolesubscriber('id_role', 'idGuild') VALUES('"+cs.getId_role()+"', '"+idGuild+"');";
 
         try {
             DatabaseConnection.getInstance().getStatement().execute(sql);
