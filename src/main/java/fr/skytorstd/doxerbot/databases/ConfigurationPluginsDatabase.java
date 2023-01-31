@@ -85,7 +85,7 @@ public class ConfigurationPluginsDatabase {
      */
     public static void initPluginConfig(String idGuild){
         for(Plugin pl : App.getPlugins()){
-            String sql = "INSERT INTO configurationPlugins('idGuild', 'pluginName', 'pluginState') VALUES('"+idGuild+"', '"+pl.getName()+"', 'false');";
+            String sql = "INSERT INTO configurationPlugins('idGuild', 'pluginName', 'pluginState') VALUES('"+idGuild+"', '"+pl.getName()+"', '0');";
 
             try {
                 DatabaseConnection.getInstance().getStatement().execute(sql);

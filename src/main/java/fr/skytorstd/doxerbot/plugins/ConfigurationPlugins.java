@@ -28,7 +28,10 @@ public class ConfigurationPlugins extends ListenerAdapter {
         if(e.getName().equals("configuration")){
             ConfigurationGuild configurationGuild = ConfigurationDoxerDatabase.getConfigurationGuildForIdGuild(e.getGuild().getId());
             Role sudo = e.getGuild().getRoleById(configurationGuild.getIdrSudo());
-            Role admin = e.getGuild().getRoleById(configurationGuild.getIdrAdmin());
+            Role admin = e.getGuild().getRoleById(configurationGuild.getIdrSudo());
+            if(configurationGuild.getIdrAdmin() != null){
+                admin = e.getGuild().getRoleById(configurationGuild.getIdrAdmin());
+            }
 
             if(e.getMember().getRoles().contains(sudo) || e.getMember().getRoles().contains(admin)){
                 if(e.getOptions().size() == 0){
