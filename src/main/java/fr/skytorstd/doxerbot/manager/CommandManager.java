@@ -1,10 +1,7 @@
 package fr.skytorstd.doxerbot.manager;
 
 import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
-import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
-import fr.skytorstd.doxerbot.messages.DiscordProfilerMessages;
-import fr.skytorstd.doxerbot.messages.MessageMoverMessages;
-import fr.skytorstd.doxerbot.messages.SetupMessages;
+import fr.skytorstd.doxerbot.messages.*;
 import fr.skytorstd.doxerbot.plugins.ConfigurationPlugins;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
@@ -40,6 +37,10 @@ public class CommandManager {
         OptionData mmIdMessage = new OptionData(OptionType.STRING, "messageid", MessageMoverMessages.DESCRIPTION_COMMAND_MESSAGE_ID.getMessage()).setRequired(true);
         OptionData mmIdChannel = new OptionData(OptionType.STRING, "channelid", MessageMoverMessages.DESCRIPTION_COMMAND_CHANNEL_ID.getMessage()).setRequired(true);
         commandData.add(Commands.slash("messagemove", MessageMoverMessages.DESCRIPTION.getMessage()).addOptions(mmIdMessage).addOptions(mmIdChannel));
+
+        //Weather
+        OptionData wVille = new OptionData(OptionType.STRING, "ville", WeatherMessages.DESCRIPTION_VILLE_ARGUMENT.getMessage()).setRequired(false);
+        commandData.add(Commands.slash("weather", WeatherMessages.DESCRIPTION.getMessage()).addOptions(wVille));
 
 
         return commandData;

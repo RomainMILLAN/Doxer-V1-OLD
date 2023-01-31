@@ -67,6 +67,7 @@ public class App {
         jda.addEventListener(new ConfigurationPlugins());
         jda.addEventListener(new DiscordProfiler());
         jda.addEventListener(new MessageMover());
+        jda.addEventListener(new Weather());
 
         /*
         Update Slash Commands
