@@ -19,7 +19,8 @@ public enum PluginName {
     DISCORDINVITER("DiscordInviter"),
     GROUPER("Grouper"),
     PINGREMOVER("PingRemover"),
-    SETUP("Setup");
+    SETUP("Setup"),
+    SUPPORT("Support");
 
     private String message;
 
