@@ -2,7 +2,6 @@ package fr.skytorstd.doxerbot.manager;
 
 import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
 import fr.skytorstd.doxerbot.embedCrafter.LoggerCrafter;
-import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.states.ConsoleState;
 import fr.skytorstd.doxerbot.states.FileName;
 import net.dv8tion.jda.api.entities.Guild;
@@ -47,7 +46,7 @@ public class Logger {
 
         g.getTextChannelById(ConfigurationDoxerDatabase.getIdcLogForIdGuild(g.getId())).sendMessageEmbeds(LoggerCrafter.craftLogEmbedWithTitleAndMessage(title,message, member)).queue();
         Console.getInstance().toConsole("'" + g.getName() + "'" +  ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
-        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " (" + g.getName() + ") " + message);
+        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - " + g.getName() + " - DISCORD SENTRY/" + title + message);
     }
 
     /**
@@ -60,8 +59,8 @@ public class Logger {
     public void toLogWithoutState(String title, String message, Guild g, Member member) {
 
         g.getTextChannelById(Objects.requireNonNull(ConfigurationDoxerDatabase.getIdcLogForIdGuild(g.getId()))).sendMessageEmbeds(LoggerCrafter.craftLogEmbedWithTitleAndMessage(title,message, member)).queue();
-        Console.getInstance().toConsole(ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
-        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " | " + message);
+        Console.getInstance().toConsole("'" + g.getName() + "'" +  ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
+        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - " + g.getName() + " - DISCORD SENTRY/" + title + " | " + message);
     }
 
     /**
@@ -73,8 +72,8 @@ public class Logger {
      */
     public void toLogWithoutStateDifferentChannel(String title, String message, Guild g, Member member) {
         g.getTextChannelById(Objects.requireNonNull(ConfigurationDoxerDatabase.getIdcDSentryForIdGuild(g.getId()))).sendMessageEmbeds(LoggerCrafter.craftLogEmbedWithTitleAndMessage(title,message, member)).queue();
-        Console.getInstance().toConsole(ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
-        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " | " + message);
+        Console.getInstance().toConsole("'" + g.getName() + "'" +  ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
+        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - " + g.getName() + " - DISCORD SENTRY/ " + title + " | " + message);
     }
 
     /**
@@ -85,7 +84,7 @@ public class Logger {
      * @param member
      */
     public void toLogOnConsoleAndFileOnly(String title, String message, Guild g, Member member){
-        Console.getInstance().toConsole(ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
-        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " | " + message);
+        Console.getInstance().toConsole("'" + g.getName() + "'" +  ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
+        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - " + g.getName() + " - DISCORD SENTRY/ " + title + " | " + message);
     }
 }
