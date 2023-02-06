@@ -1,0 +1,28 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Doxer Test",
+            "request": "launch",
+            "mainClass": "fr.skytorstd.doxerbot.App",
+            "projectName": "DoxerBot",
+            "args": "MTAzMDQzNDUyNTM0OTY4MzI2MQ.GkoVMo.HDemxooPaLgR7xN5AbOJbS3i3zSGkru-KBGDqg --debug"
+        },
+        {
+            "type": "java",
+            "name": "Doxer LTS",
+            "mainClass": "fr.skytorstd.doxerbot.App",
+            "args": "MTA2OTkzNTQ4MTQxODE2NjM0NA.GUG_A3.Jv6070v_HDoYfBFi385erWSQ3TfeUYGqmlKDeE"
+        }
+    ]
+}
