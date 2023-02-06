@@ -46,8 +46,8 @@ public class Logger {
             message = ":x: " + message + " (*Failed*)";
 
         g.getTextChannelById(ConfigurationDoxerDatabase.getIdcLogForIdGuild(g.getId())).sendMessageEmbeds(LoggerCrafter.craftLogEmbedWithTitleAndMessage(title,message, member)).queue();
-        Console.getInstance().toConsole(ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
-        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " | " + message);
+        Console.getInstance().toConsole("'" + g.getName() + "'" +  ConsoleColor.PURPLE.getConsoleColor()+" | " + ConsoleColor.RESET.getConsoleColor() + title + ConsoleColor.PURPLE.getConsoleColor() + " | " + ConsoleColor.RESET.getConsoleColor() + message, ConsoleState.LOG);
+        WriteFile.getInstance().writeOnFile(fileName, "\n[" + DateHourFormatter.getInstance().getDateAndHourTimeFormat() + "] - DISCORD SENTRY/ " + title + " (" + g.getName() + ") " + message);
     }
 
     /**
