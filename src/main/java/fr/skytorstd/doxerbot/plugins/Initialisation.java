@@ -10,7 +10,6 @@ import fr.skytorstd.doxerbot.manager.Logger;
 import fr.skytorstd.doxerbot.messages.SetupMessages;
 import fr.skytorstd.doxerbot.states.PluginName;
 import fr.skytorstd.doxerbot.states.QueueAfterTimes;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -26,7 +25,6 @@ public class Initialisation extends ListenerAdapter {
 
             if(args.length == 2){
                 String idSudo = args[1];
-                Role role = e.getGuild().getRoleById(idSudo);
 
                 if(!ConfigurationDoxerDatabase.idGuildIsInConfiguration(e.getGuild().getId())){
                     ConfigurationDoxerDatabase.initBot(e.getGuild().getId(), idSudo);

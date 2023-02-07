@@ -1,6 +1,5 @@
 package fr.skytorstd.doxerbot.manager;
 
-import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.messages.*;
 import fr.skytorstd.doxerbot.plugins.ConfigurationPlugins;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
@@ -10,7 +9,6 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class CommandManager {
 

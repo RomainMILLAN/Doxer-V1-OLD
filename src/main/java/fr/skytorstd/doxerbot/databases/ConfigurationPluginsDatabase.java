@@ -1,7 +1,6 @@
 package fr.skytorstd.doxerbot.databases;
 
 import fr.skytorstd.doxerbot.App;
-import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.object.Plugin;
 
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ public class ConfigurationPluginsDatabase {
         int intBoolean = 0;
 
         try {
-            ResultSet resultatSQL = resultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
+            ResultSet resultatSQL = DatabaseConnection.getInstance().getStatement().executeQuery(sql);
 
             intBoolean = resultatSQL.getInt("pluginState");
 

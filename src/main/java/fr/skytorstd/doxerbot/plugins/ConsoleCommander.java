@@ -13,20 +13,21 @@ public class ConsoleCommander {
         while(true){
             Console.getInstance().toConsole(ConsoleCommanderMessages.CC_INFO_STOP.getMessage(), ConsoleState.CONSOLE);
             Console.getInstance().toConsole(ConsoleCommanderMessages.CC_INFO_RELOAD.getMessage(), ConsoleState.CONSOLE);
-            Scanner scanner = new Scanner(System.in);
-            String consoleCommand = scanner.nextLine();
+            try (Scanner scanner = new Scanner(System.in)) {
+                String consoleCommand = scanner.nextLine();
 
 
-            if(consoleCommand.equals("!stop")){
-                App.getJda().shutdown();
-                Console.getInstance().toConsole(ConsoleCommanderMessages.CC_STOP.getMessage(), ConsoleState.CONSOLE);
-                System.exit(1);
-            } else if(consoleCommand.equals("!reload")){
-                App.getJda().shutdown();
-                Console.getInstance().toConsole(ConsoleCommanderMessages.CC_RELOAD.getMessage(), ConsoleState.CONSOLE);
-                App.run();
-            } else
-                Console.getInstance().toConsole(ConsoleCommanderMessages.CC_ERROR_COMMAND.getMessage(), ConsoleState.ERROR);
+                if(consoleCommand.equals("!stop")){
+                    App.getJda().shutdown();
+                    Console.getInstance().toConsole(ConsoleCommanderMessages.CC_STOP.getMessage(), ConsoleState.CONSOLE);
+                    System.exit(1);
+                } else if(consoleCommand.equals("!reload")){
+                    App.getJda().shutdown();
+                    Console.getInstance().toConsole(ConsoleCommanderMessages.CC_RELOAD.getMessage(), ConsoleState.CONSOLE);
+                    App.run();
+                } else
+                    Console.getInstance().toConsole(ConsoleCommanderMessages.CC_ERROR_COMMAND.getMessage(), ConsoleState.ERROR);
+            }
         }
     }
 

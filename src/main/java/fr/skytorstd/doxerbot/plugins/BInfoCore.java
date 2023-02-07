@@ -1,7 +1,6 @@
 package fr.skytorstd.doxerbot.plugins;
 
 import fr.skytorstd.doxerbot.App;
-import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
 import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.databases.plugins.BInfoDatabase;
 import fr.skytorstd.doxerbot.embedCrafter.BInfoCrafter;
@@ -12,7 +11,6 @@ import fr.skytorstd.doxerbot.manager.Downloader;
 import fr.skytorstd.doxerbot.manager.Logger;
 import fr.skytorstd.doxerbot.messages.BInfoCoreMessages;
 import fr.skytorstd.doxerbot.messages.LoggerMessages;
-import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.object.Cour;
 import fr.skytorstd.doxerbot.object.Plugin;
 import fr.skytorstd.doxerbot.states.PluginName;
@@ -59,7 +57,6 @@ public class BInfoCore extends ListenerAdapter {
     public void onSlashCommandInteraction(SlashCommandInteractionEvent e) {
         if(e.getName().equals("tutorat")){
             if(ConfigurationPluginsDatabase.getStatePluginWithPluginName(PluginName.BINFOCORE.getMessage(), e.getGuild().getId())){
-                ConfigurationGuild configurationGuild = ConfigurationDoxerDatabase.getConfigurationGuildForIdGuild(e.getGuild().getId());
                 Role tuteur = e.getGuild().getRoleById(BInfoConfiguration.IDR_TUTEUR);
 
                 if(e.getMember().getRoles().contains(tuteur)){
@@ -154,14 +151,13 @@ public class BInfoCore extends ListenerAdapter {
                         date = Objects.requireNonNull(e.getOption("date")).getAsString();
 
                     if(id == null){
-                        //Liste des cours
-                        ArrayList<Cour> cours = new ArrayList<>();
-
                         if(date == null){
                             //Date du jour
                             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                             date = String.valueOf(dtf.format(LocalDateTime.now()));;
                         }
+
+                        //Liste des cours
                         ArrayList<Cour> listCour = BInfoDatabase.getListCourByDateAndGroupe(date, groupe);
 
                         if(listCour.size() != 0){

@@ -72,7 +72,6 @@ public class RoleSubscriber extends ListenerAdapter {
                         ArrayList<fr.skytorstd.doxerbot.object.RoleSubscriber> CSListToAdd = RoleSubscriberDatabase.getListRoleSubscriber(e.getGuild().getId());
 
                         e.getChannel().sendMessageEmbeds(RoleSubscriberCrafter.craftEmbedSee()).queue();
-                        int CSListToAddNbMessage = CSListToAdd.size()/5;
                         while(CSListToAdd.size() > 0){
                             ArrayList<Button> buttonList = new ArrayList<>();
                             int j=0;
@@ -131,14 +130,6 @@ public class RoleSubscriber extends ListenerAdapter {
         }
 
         if(CSIdButton.contains(e.getButton().getId())){
-            fr.skytorstd.doxerbot.object.RoleSubscriber cscurrent = null;
-            for(fr.skytorstd.doxerbot.object.RoleSubscriber cs : CS){
-                if(cs.getId_role().equals(e.getButton().getId())){
-                    cscurrent = cs;
-                    break;
-                }
-            }
-
             Role role = e.getGuild().getRoleById(e.getButton().getId());
             if(!e.getMember().getRoles().contains(role)){
                 e.getGuild().addRoleToMember(e.getMember(), role).queue();

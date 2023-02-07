@@ -5,7 +5,6 @@ import fr.skytorstd.doxerbot.databases.ConfigurationDoxerDatabase;
 import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.embedCrafter.WelcomerCrafter;
 import fr.skytorstd.doxerbot.manager.Logger;
-import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.messages.WelcomerMessages;
 import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.object.Inviter;

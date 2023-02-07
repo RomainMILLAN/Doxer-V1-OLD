@@ -16,6 +16,7 @@ public class DiscordProfilerCrafter extends EmbedCrafter{
         embed.setThumbnail(member.getEffectiveAvatarUrl());
         embed.addField("ID: ", "`"+ member.getId()+"`", true);
         embed.addField("Avatar URL: ", "`"+ member.getEffectiveAvatarUrl()+"`", false);
+        embed.setColor(profilColor);
 
         StringBuilder roleUser = new StringBuilder();
         for(Role role : member.getRoles()){

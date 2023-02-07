@@ -88,7 +88,7 @@ public class DiscordInviter extends ListenerAdapter {
                 for(Inviter inviter : listInviter){
                     if(inviter.getUsertag().equals(userTag)){
                         listInviter.remove(inviter);
-                        e.getMember().kick("DiscordInviter").queue();
+                        e.getMember().kick().queue();
 
                         Logger.getInstance().toLog(PluginName.DISCORDINVITER.getMessage(), DiscordInviterMessages.MEMBER_LEAVE_DI.getMessage(), e.getGuild(), e.getMember(), true);
                         return;
