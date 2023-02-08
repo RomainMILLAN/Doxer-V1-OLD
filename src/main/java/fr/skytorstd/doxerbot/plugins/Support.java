@@ -77,7 +77,7 @@ public class Support extends ListenerAdapter {
     }
 
     private static void createTicket(Guild guild, Category category, Member member){
-        String titleTicket = "";
+        String titleTicket = "\uD83D\uDCE8-ticket";
         if(member.getNickname() != null)
             titleTicket = "\uD83D\uDCE8-ticket-" + member.getNickname();
         else
