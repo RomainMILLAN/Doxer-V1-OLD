@@ -9,6 +9,7 @@ import fr.skytorstd.doxerbot.embedCrafter.SupportCrafter;
 import fr.skytorstd.doxerbot.manager.Logger;
 import fr.skytorstd.doxerbot.messages.ErrorMessages;
 import fr.skytorstd.doxerbot.messages.SupportMessages;
+import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.object.Plugin;
 import fr.skytorstd.doxerbot.states.PluginName;
 import fr.skytorstd.doxerbot.states.QueueAfterTimes;
@@ -82,10 +83,15 @@ public class Support extends ListenerAdapter {
         else
             titleTicket = "\uD83D\uDCE8-ticket-" + member.getEffectiveName();
 
-        EnumSet<Permission> allow = EnumSet.of(Permission.MESSAGE_ADD_REACTION, Permission.MESSAGE_HISTORY, Permission.MESSAGE_ATTACH_FILES, Permission.MESSAGE_EMBED_LINKS, Permission.MESSAGE_SEND);
-        EnumSet<Permission> deny = EnumSet.of(Permission.MESSAGE_MANAGE);
+        EnumSet<Permission> allowMember = EnumSet.of(Permission.MESSAGE_ADD_REACTION, Permission.MESSAGE_HISTORY, Permission.MESSAGE_ATTACH_FILES, Permission.MESSAGE_EMBED_LINKS, Permission.MESSAGE_SEND);
+        EnumSet<Permission> denyMember = EnumSet.of(Permission.MESSAGE_MANAGE);
         Role memberRole = guild.getRoleById(ConfigurationDoxerDatabase.getConfigurationGuildForIdGuild(guild.getId()).getIdrUser());
         EnumSet<Permission> denyRole = EnumSet.of(Permission.VIEW_CHANNEL);
-        guild.createTextChannel(titleTicket, category).addRolePermissionOverride(Long.parseLong(memberRole.getId()), null, denyRole).addMemberPermissionOverride(Long.parseLong(member.getId()), allow, deny).queue();
+        EnumSet<Permission> allowStaff = EnumSet.of(Permission.VIEW_CHANNEL, Permission.MESSAGE_ADD_REACTION, Permission.MESSAGE_HISTORY, Permission.MESSAGE_ATTACH_FILES, Permission.MESSAGE_EMBED_LINKS, Permission.MESSAGE_SEND, Permission.ADMINISTRATOR, Permission.MESSAGE_MANAGE);
+        ConfigurationGuild configurationGuild = ConfigurationDoxerDatabase.getConfigurationGuildForIdGuild(guild.getId());
+        Long idModo = Long.parseLong(configurationGuild.getIdrModerateur());
+        Long idAdmin = Long.parseLong(configurationGuild.getIdrAdmin());
+        Long idSudo = Long.parseLong(configurationGuild.getIdrSudo());
+        guild.createTextChannel(titleTicket, category).addRolePermissionOverride(Long.parseLong(memberRole.getId()), null, denyRole).addMemberPermissionOverride(Long.parseLong(member.getId()), allowMember, denyMember).addRolePermissionOverride(idModo, allowStaff, null).addRolePermissionOverride(idAdmin, allowStaff, null).addRolePermissionOverride(idSudo, allowStaff, null).queue();
     }
 }
