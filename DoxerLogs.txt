@@ -127,3 +127,5 @@
 [08/02/2023 10:05:02] - Skytor Studio [V2] - DISCORD SENTRY/Support:white_check_mark: Vôtre ticket à était crée avec succès (*Success*)
 [08/02/2023 10:09:10] - Skytor Studio [V2] - DISCORD SENTRY/Support:white_check_mark: Vôtre ticket à était crée avec succès (*Success*)
 [08/02/2023 10:10:24] - Skytor Studio [V2] - DISCORD SENTRY/Support:white_check_mark: Vôtre ticket à était crée avec succès (*Success*)
+[13/02/2023 09:07:24] - Ligar Serveur Test - DISCORD SENTRY/Support:white_check_mark: Le message de création de ticket à était envoyé (*Success*)
+[13/02/2023 09:07:27] - Ligar Serveur Test - DISCORD SENTRY/Support:white_check_mark: Vôtre ticket à était crée avec succès (*Success*)
