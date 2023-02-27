@@ -1,1 +1,0 @@
-java -jar doxerbot.jar MTA2OTkzNTQ4MTQxODE2NjM0NA.GUG_A3.Jv6070v_HDoYfBFi385erWSQ3TfeUYGqmlKDeE

@@ -1,6 +1,0 @@
-version: '3.4'
-services:
-  java:
-    build: .
-    container_name: doxerbot_java
-    tty: true
