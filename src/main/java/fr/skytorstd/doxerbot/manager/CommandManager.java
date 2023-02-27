@@ -96,7 +96,7 @@ public class CommandManager {
         commandData.add(Commands.slash("pingremover", PingRemoverMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(prAction).addOptions(prPing).addOptions(prPingTxt));
 
         //Support
-        OptionData spAction = new OptionData(OptionType.STRING, "action", SupportMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Crée un message de création de ticket", "ticket-message");
+        OptionData spAction = new OptionData(OptionType.STRING, "action", SupportMessages.DESCRIPTION_ACTION_ARGUMENT.getMessage()).setRequired(true).addChoice("Crée un message de création de ticket", "ticket-message").addChoice("Fermée le ticket courant", "close");
         commandData.add(Commands.slash("support", SupportMessages.DESCRIPTION_COMMAND.getMessage()).addOptions(spAction));
 
         return commandData;
