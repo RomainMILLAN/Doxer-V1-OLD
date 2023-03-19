@@ -7,8 +7,8 @@
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>DoxerBot</name>
-  <url>http://skytorstd.ml/</url>
+  <name>Doxer</name>
+  <url>http://romainmillan.fr/</url>
 
   <properties>
     <maven.compiler.source>19</maven.compiler.source>
