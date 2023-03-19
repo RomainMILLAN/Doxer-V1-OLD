@@ -10,6 +10,10 @@ public enum QueueAfterTimes {
         this.queueAfterTime = queueAfterTime;
     }
 
+    /**
+     * Retourne le temps sélectionné
+     * @return
+     */
     public long getQueueAfterTime() {
         return queueAfterTime;
     }

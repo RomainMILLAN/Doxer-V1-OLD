@@ -29,7 +29,7 @@ public enum PluginName {
     }
 
     /**
-     * Retourne le message choisi
+     * Retourne le nom du plugin
      * @return
      */
     public String getMessage() {
