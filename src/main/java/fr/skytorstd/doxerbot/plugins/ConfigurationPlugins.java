@@ -6,6 +6,7 @@ import fr.skytorstd.doxerbot.databases.ConfigurationPluginsDatabase;
 import fr.skytorstd.doxerbot.embedCrafter.ConfigPluginsCrafter;
 import fr.skytorstd.doxerbot.embedCrafter.ErrorCrafter;
 import fr.skytorstd.doxerbot.manager.Logger;
+import fr.skytorstd.doxerbot.messages.ConfigurationPluginsMessages;
 import fr.skytorstd.doxerbot.messages.LoggerMessages;
 import fr.skytorstd.doxerbot.object.ConfigurationGuild;
 import fr.skytorstd.doxerbot.object.Plugin;
@@ -56,7 +57,7 @@ public class ConfigurationPlugins extends ListenerAdapter {
                                 e.replyEmbeds(ConfigPluginsCrafter.embedUpdatePluginState(plugin, true)).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.SUCCESS_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                                 Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), "Changement de status de `"+plugin+"` sur **true**", e.getGuild(), e.getMember(), true);
                             }else {
-                                e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(":x: Le plugin est déja activé")).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
+                                e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(ConfigurationPluginsMessages.PLUGIN_ALREADY_ACTIVATE.getMessage())).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                                 Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), "Changement de status de `"+plugin+"` sur **true**", e.getGuild(), e.getMember(), false);
                             }
 
@@ -66,11 +67,10 @@ public class ConfigurationPlugins extends ListenerAdapter {
                             if(ConfigurationPluginsDatabase.getStatePluginWithPluginName(plugin, e.getGuild().getId())){
                                 ConfigurationPluginsDatabase.updatePluginStateWithPluginAndIdGuild(pluginObject, e.getGuild().getId());
 
-
                                 e.replyEmbeds(ConfigPluginsCrafter.embedUpdatePluginState(plugin, false)).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.SUCCESS_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                                 Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), "Changement de status de `"+plugin+"` sur **false**", e.getGuild(), e.getMember(), true);
                             }else {
-                                e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(":x: Le plugin est déja activé")).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
+                                e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(ConfigurationPluginsMessages.PLUGIN_ALREADY_ACTIVATE.getMessage())).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                                 Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), "Changement de status de `"+plugin+"` sur **false**", e.getGuild(), e.getMember(), false);
                             }
 
@@ -85,7 +85,7 @@ public class ConfigurationPlugins extends ListenerAdapter {
                             Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), LoggerMessages.COMMAND_NOT_EXIST.getMessage() + " `"+e.getCommandString()+"`", e.getGuild(), e.getMember(), false);
                         }
                     }else {
-                        e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(":x: Le plugin n'existe pas")).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
+                        e.replyEmbeds(ErrorCrafter.errorEmbedCrafterWithDescription(ConfigurationPluginsMessages.PLUGIN_DOESNT_EXIST.getMessage())).setEphemeral(true).queue((m) -> m.deleteOriginal().queueAfter(QueueAfterTimes.ERROR_TIME.getQueueAfterTime(), TimeUnit.SECONDS));
                         Logger.getInstance().toLog(PluginName.CONFIGURATIONLIGAR.getMessage(), "Plugin innexistant `"+plugin+"`", e.getGuild(), e.getMember(), false);
                     }
                 }else {
@@ -99,6 +99,12 @@ public class ConfigurationPlugins extends ListenerAdapter {
         }
     }
 
+    /**
+     * Retourne la liste des plugins installer sur le bot discord pour la commande slash
+     * <pre/>
+     * 
+     * @return une liste de choix
+     */
     public static List<Command.Choice> allPluginInListByChoice(){
         List<Command.Choice> listChoice = new ArrayList<>();
 

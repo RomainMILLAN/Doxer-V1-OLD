@@ -23,12 +23,14 @@ public class App {
     private static boolean debugMode = false;
     private static ArrayList<Plugin> plugins = new ArrayList<>();
 
+    /**
+     * Get the token of the bot and run it.
+     * <pre/>
+     * 
+     * @param args
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws InterruptedException {
-        /*
-        Get TOKEN bot
-         */
-        //java -jar ligar.java TOKEN --debug
-        //java -jar ligar.java TOKEN
         StringBuilder TOKEN = new StringBuilder();
         for(String argument : args){
             if(argument.equalsIgnoreCase("--debug")){
@@ -43,7 +45,10 @@ public class App {
     }
 
     /**
-     * Create and run the bot
+     * Run the bot
+     * <pre/>
+     * 
+     * @throws InterruptedException
      */
     public static void run() throws InterruptedException {
         jda = JDABuilder.createDefault(TOKEN)
@@ -81,7 +86,7 @@ public class App {
         jda.addEventListener(new Support());
 
         /*
-        Update Slash Commands
+        Update  all slash commands
          */
         updateSlashCommands();
 
@@ -95,9 +100,12 @@ public class App {
         /*
         ConsoleCommander
         */
-        ConsoleCommander.ligarConsoleCommander();
+        ConsoleCommander.consoleCommander();
     }
 
+    /**
+     * Update all the commands slash on all guild of the bot
+     */
     public static void updateSlashCommands(){
         for(String idGuild : ConfigurationDoxerDatabase.getAllIdGuild()){
             jda.getGuildById(idGuild).updateCommands().addCommands(CommandManager.updateSlashCommands()).queue();

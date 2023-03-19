@@ -9,19 +9,27 @@ import java.util.Scanner;
 
 public class ConsoleCommander {
 
-    public static void ligarConsoleCommander() throws InterruptedException {
+    /**
+     * Execute command by the console
+     * <pre/>
+     * 
+     * @throws InterruptedException
+     */
+    public static void consoleCommander() throws InterruptedException {
         while(true){
             Console.getInstance().toConsole(ConsoleCommanderMessages.CC_INFO_STOP.getMessage(), ConsoleState.CONSOLE);
             Console.getInstance().toConsole(ConsoleCommanderMessages.CC_INFO_RELOAD.getMessage(), ConsoleState.CONSOLE);
+            
             try (Scanner scanner = new Scanner(System.in)) {
                 String consoleCommand = scanner.nextLine();
 
-
                 if(consoleCommand.equals("!stop")){
+                    //Stop the bot
                     App.getJda().shutdown();
                     Console.getInstance().toConsole(ConsoleCommanderMessages.CC_STOP.getMessage(), ConsoleState.CONSOLE);
                     System.exit(1);
                 } else if(consoleCommand.equals("!reload")){
+                    //Reload the bot but not the code
                     App.getJda().shutdown();
                     Console.getInstance().toConsole(ConsoleCommanderMessages.CC_RELOAD.getMessage(), ConsoleState.CONSOLE);
                     App.run();
