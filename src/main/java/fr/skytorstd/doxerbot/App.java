@@ -19,7 +19,6 @@ import java.util.ArrayList;
 public class App {
     final public static String urlLinkToBDD = "jdbc:sqlite:doxerDB.db";
     private static JDA jda;
-    private static String TOKEN = "";
     private static boolean debugMode = false;
     private static ArrayList<Plugin> plugins = new ArrayList<>();
 
@@ -31,6 +30,7 @@ public class App {
      * @throws InterruptedException
      */
     public static void main(String[] args) throws InterruptedException {
+        
         StringBuilder TOKEN = new StringBuilder();
         for(String argument : args){
             if(argument.equalsIgnoreCase("--debug")){
@@ -39,9 +39,8 @@ public class App {
                 TOKEN.append(argument);
             }
         }
-        App.TOKEN = TOKEN.toString();
 
-        run();
+        run(TOKEN.toString());
     }
 
     /**
@@ -50,8 +49,8 @@ public class App {
      * 
      * @throws InterruptedException
      */
-    public static void run() throws InterruptedException {
-        jda = JDABuilder.createDefault(TOKEN)
+    public static void run(String botToken) throws InterruptedException {
+        jda = JDABuilder.createDefault(botToken)
                 .setIdle(true)
                 .enableCache(CacheFlag.ACTIVITY, CacheFlag.VOICE_STATE)
                 .setActivity(Activity.watching(AppMessages.ACTIVITY_PLAYING_BOT.getMessage()))
