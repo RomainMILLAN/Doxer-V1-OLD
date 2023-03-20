@@ -28,11 +28,6 @@ public class ConsoleCommander {
                     App.getJda().shutdown();
                     Console.getInstance().toConsole(ConsoleCommanderMessages.CC_STOP.getMessage(), ConsoleState.CONSOLE);
                     System.exit(1);
-                } else if(consoleCommand.equals("!reload")){
-                    //Reload the bot but not the code
-                    App.getJda().shutdown();
-                    Console.getInstance().toConsole(ConsoleCommanderMessages.CC_RELOAD.getMessage(), ConsoleState.CONSOLE);
-                    App.run();
                 } else
                     Console.getInstance().toConsole(ConsoleCommanderMessages.CC_ERROR_COMMAND.getMessage(), ConsoleState.ERROR);
             }
