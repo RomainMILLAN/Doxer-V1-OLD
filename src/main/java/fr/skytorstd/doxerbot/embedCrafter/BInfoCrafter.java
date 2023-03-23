@@ -1,11 +1,9 @@
 package fr.skytorstd.doxerbot.embedCrafter;
 
-import fr.skytorstd.doxerbot.object.Cour;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class BInfoCrafter extends EmbedCrafter{
     private static  Color colorBInfo = Color.CYAN;
