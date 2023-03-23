@@ -21,33 +21,4 @@ public class BInfoCrafter extends EmbedCrafter{
 
         return embed.build();
     }
-
-    public static MessageEmbed craftEDTCourEmbed(Cour cour){
-        EmbedBuilder embed = new EmbedBuilder();
-        embed.setTitle("\uD83D\uDCDA **Cour** - " + cour.getId());
-        embed.addField("Heure début: ", cour.getHeureDebut(), true);
-        embed.addField("Heure fin: ", cour.getHeureFin(), true);
-        embed.addField("Date: ", cour.getDate(), true);
-        embed.addField("Professeur: ", cour.getProfesseur(), true);
-        embed.addField("Groupe: ", cour.getGroupe(), true);
-        embed.addField("Information: ", cour.getInformation(), true);
-        embed.setColor(colorBInfo);
-        embed.setFooter(getFooterEmbed());
-
-        return embed.build();
-    }
-
-    public static MessageEmbed craftEDTListCour(ArrayList<Cour> cours){
-        EmbedBuilder embed = new EmbedBuilder();
-        embed.setTitle("\uD83D\uDCDA **Cours** - [" + cours.get(0).getGroupeFr() + "] (*" + cours.get(0).getDate() + "*)");
-        String description = "Liste des cours: \n";
-        for(Cour cour : cours){
-            description += " ■ [*" + cour.getId() + "*] *"+cour.getProfesseur()+"* **" + cour.getName() + "** - `" + cour.getHeureDebut() + "`/`" + cour.getHeureFin() + "`\n";
-        }
-        embed.setDescription(description);
-        embed.setColor(colorBInfo);
-        embed.setFooter(getFooterEmbed());
-
-        return embed.build();
-    }
 }
